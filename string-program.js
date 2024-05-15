@@ -55,3 +55,11 @@ function fectRecursion(num) {
   return num * fectRecursion(num - 1);
 }
 console.log(fectRecursion(5));
+
+// sort the array using arrow function
+
+const arr = [50, 20, 10, 90, 5];
+
+const sortedArray = arr.sort((a, b) => a - b);
+
+console.log(sortedArray);
