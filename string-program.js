@@ -63,3 +63,37 @@ const arr = [50, 20, 10, 90, 5];
 const sortedArray = arr.sort((a, b) => a - b);
 
 console.log(sortedArray);
+
+// array loop of the orginal property
+
+Array.prototype.extraPrototype = "vinay";
+const newArray = [1, 4, 3, 5, 8];
+for (let i in newArray) {
+  console.log(i); // it's print extra property
+  if (newArray.hasOwnProperty(i)) {
+    console.log(i); // it's not print the extra property
+  }
+}
+
+// custom foreach loop - basic implemantion
+
+Array.prototype.customForEachOne = function (callback) {
+  for (let i = 0; i < this.length; i++) {
+    callback(this[i], i, this);
+  }
+};
+
+// second approch of the custom of the foreach
+Array.prototype.customForEachTwo = function (callback, thisCtx) {
+  if (typeof callback === "function") {
+    throw `not a function`;
+  }
+  const length = this.length;
+  let i = 0;
+  while (i < length) {
+    if (this.hasOwnProperty) {
+      callback.call(thisCtx, this[i], i, this);
+    }
+    i++;
+  }
+};
