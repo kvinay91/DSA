@@ -131,3 +131,75 @@ const invokeAfter = printEmpDetails.bind(userInfo, "GCT");
 invokeAfter();
 
 // write a polyfill of the bind method
+const studentMark = [
+  { name: "std1", mark: 68 },
+  { name: "std1", mark: 78 },
+  { name: "std3", mark: 28 },
+  { name: "std4", mark: 88 },
+  { name: "std5", mark: 56 },
+];
+function getStudentMaxNumber(studentMark) {
+  let max = studentMark[0];
+  for (let i = 0; i < studentMark.length; i++) {
+    if (studentMark[i].mark > max.mark) {
+      max = studentMark[i];
+    }
+  }
+  console.log("student max number", max);
+  return max;
+}
+
+getStudentMaxNumber(studentMark);
+
+// find two max number
+
+function findMaxTwoNumber(studentMark) {
+  studentMark.sort((a, b) => b.mark - a.mark);
+  const topTwo = studentMark.slice(0, 2);
+  console.log("max two", topTwo);
+}
+
+findMaxTwoNumber(studentMark);
+
+// Create a function that finds even numbers in an array, doubles these even numbers, and determines the length of the array without using the built-in length function.
+
+const orginalArr = [10, 48, 39, 100, 99, 8];
+let evenArray = [];
+let lengthCount = 0;
+
+for (let i = 0; i < orginalArr.length; i++) {
+  if (orginalArr[i] % 2 === 0) {
+    lengthCount++;
+    evenArray.push(orginalArr[i] * 2);
+  }
+}
+console.log(lengthCount);
+console.log(evenArray);
+
+// closure program
+
+function outer() {
+  let count = 10;
+  function inner() {
+    console.log(count);
+  }
+  return inner;
+}
+
+const closureExample = outer();
+closureExample();
+
+// promise syntex
+
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const data = { fname: "viany", lname: "kumar" };
+      resolve(data);
+      reject(new Error("Getting error"));
+    }, 2000);
+  });
+};
+fetchData()
+  .then((result) => console.log("result", result))
+  .catch((error) => console.error("error", error.message));
