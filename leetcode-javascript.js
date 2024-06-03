@@ -81,3 +81,18 @@ const isPolindrom = function (num) {
   return num < 0 ? false : num === +num.toString().split("").reverse().join("");
 };
 console.log(isPolindrom(121)); // true
+
+// update String to Apple -> A-Pp-Ppp-Leee-Eeeee
+
+const transformString = (str) => {
+  return str
+    .split("")
+    .map((elm, ind) => {
+      const repetedChar = elm.repeat(ind + 1);
+      return `${repetedChar.charAt(0).toUpperCase()}${repetedChar
+        .slice(1)
+        .toLowerCase()}`;
+    })
+    .join("-");
+};
+console.log(transformString("Apple"));
