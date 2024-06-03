@@ -9,6 +9,24 @@ const polindromeNumber = function (nums) {
 
 console.log(polindromeNumber(121));
 
+// remove duplicate item in the array
+let arr = [1, 3, 5, 3, 2, 6, 1, 5];
+let uniquArr = [];
+for(let i =0 ; i<arr.length; i++){
+		let isDuplicate = false;
+		for( let j = 0 ; j< uniquArr.length; j++){
+    	if(arr[i] === uniquArr[j]) {
+      	isDuplicate = true;
+        break;
+      }
+    }
+    if(!isDuplicate){
+    		uniquArr.push(arr[i])
+    }
+}
+console.log(uniquArr);
+
+
 // call, bind and apply method in javascript
 
 // approch -1
