@@ -96,3 +96,33 @@ const transformString = (str) => {
     .join("-");
 };
 console.log(transformString("Apple"));
+
+// call, bind and apply method
+
+let myname = {
+  fname: "Vinay",
+  lname: "Kumar",
+};
+const printFullName = function (homeTown, state, country) {
+  console.log(`${this.fname} ${this.lname} ${homeTown} ${state} ${country}`);
+};
+
+printFullName.call(myname, "Ghazipur", "UP");
+
+printFullName.apply(myname, ["Ghazipur", "UP"]);
+
+const printName = printFullName.bind(myname, "Ghazipur", "UP");
+printName();
+
+// polyfill for bind method
+
+Function.prototype.myBind = function (...args) {
+  let obj = this;
+  let param = args.slice(1);
+  return function (...args2) {
+    obj.apply(args[0], [...param, ...args2]);
+  };
+};
+
+const printName2 = printFullName.myBind(myname, "Delhi");
+printName2("India", "Asia");
