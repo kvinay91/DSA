@@ -102,7 +102,19 @@ function sum(num1) {
     return num1;
   };
 }
+
 console.log("function curring =>", sum(2)(3)(5)());
+
+const sumNum = (...args1) =>{
+	return (...args2) =>{
+  	if (args2.length === 0){
+    		return args1.reduce((acc, agr) => acc +agr, 0)
+    }
+    return sumNum(...args1, ...args2)
+  }
+}
+
+console.log(sumNum(2,4,5,6,7)(3,5,6,7)(2)(3,5)())
 
 // map and reduce method in java script
 
