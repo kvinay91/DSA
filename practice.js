@@ -129,3 +129,22 @@ Function.prototype.myForEach = function (callback) {
 
 // find duplicate elment then return true other wise false
 // Arr = [1,2,4,5,1]
+
+// sort array with custom logic -- bubble sort
+
+const sortArray = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+};
+
+const arr = [3, 65, 7, 1, 66, 8];
+
+console.log("sort arr ==>", sortArray(arr));
