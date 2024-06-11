@@ -12,20 +12,19 @@ console.log(polindromeNumber(121));
 // remove duplicate item in the array
 let arr = [1, 3, 5, 3, 2, 6, 1, 5];
 let uniquArr = [];
-for(let i =0 ; i<arr.length; i++){
-		let isDuplicate = false;
-		for( let j = 0 ; j< uniquArr.length; j++){
-    	if(arr[i] === uniquArr[j]) {
-      	isDuplicate = true;
-        break;
-      }
+for (let i = 0; i < arr.length; i++) {
+  let isDuplicate = false;
+  for (let j = 0; j < uniquArr.length; j++) {
+    if (arr[i] === uniquArr[j]) {
+      isDuplicate = true;
+      break;
     }
-    if(!isDuplicate){
-    		uniquArr.push(arr[i])
-    }
+  }
+  if (!isDuplicate) {
+    uniquArr.push(arr[i]);
+  }
 }
 console.log(uniquArr);
-
 
 // call, bind and apply method in javascript
 
@@ -105,23 +104,23 @@ function sum(num1) {
 
 console.log("function curring =>", sum(2)(3)(5)());
 
-const sumNum = (...args1) =>{
-	return (...args2) =>{
-  	if (args2.length === 0){
-    		return args1.reduce((acc, agr) => acc +agr, 0)
+const sumNum = (...args1) => {
+  return (...args2) => {
+    if (args2.length === 0) {
+      return args1.reduce((acc, agr) => acc + agr, 0);
     }
-    return sumNum(...args1, ...args2)
-  }
-}
+    return sumNum(...args1, ...args2);
+  };
+};
 
-console.log(sumNum(2,4,5,6,7)(3,5,6,7)(2)(3,5)())
+console.log(sumNum(2, 4, 5, 6, 7)(3, 5, 6, 7)(2)(3, 5)());
 
 // map and reduce method in java script
 
-const arr = [4, 6, 7, 23, 5];
-const result = arr.map((elm) => elm * 2);
+const arr2 = [4, 6, 7, 23, 5];
+const result = arr2.map((elm) => elm * 2);
 console.log(result);
-const arraySum = arr.reduce((acc, num) => acc + num, 0);
+const arraySum = arr2.reduce((acc, num) => acc + num, 0);
 console.log(arraySum);
 
 // destructuring
@@ -233,3 +232,11 @@ const fetchData = () => {
 fetchData()
   .then((result) => console.log("result", result))
   .catch((error) => console.error("error", error.message));
+
+const arr1 = ["test"];
+const obj1 = {};
+obj1.test = "Frontend master";
+console.log(arr1);
+console.log(obj1[arr1]);
+obj1[arr1] = "React";
+console.log(obj1.test);
