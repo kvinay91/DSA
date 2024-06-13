@@ -27,3 +27,9 @@ function findTriplets(a) {
 }
 
 findTriplets([-3, -1, 0, 1, 2]);
+
+/*
+outout - 
+-3 1 2
+-1 0 1
+*/

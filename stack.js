@@ -45,4 +45,4 @@ function reverseString(str) {
 }
 
 let str = "ABCDEFG";
-console.log(reverseString(str));
+console.log(reverseString(str)); // output - GFEDCBA

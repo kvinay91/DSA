@@ -28,4 +28,4 @@ const findString = (arr, str) => {
 const str1 = ["able", "apple", "monkey", "plea"];
 const str2 = "abpcplea";
 
-console.log(findString(str1, str2));
+console.log(findString(str1, str2)); // output - apple

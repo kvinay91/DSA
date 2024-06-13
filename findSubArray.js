@@ -31,3 +31,4 @@ function findSubArray(arr, sum) {
 }
 
 console.log(findSubArray([1, 4, 20, 3, 10, 5], 33));
+// output - [ 20, 3, 10 ]

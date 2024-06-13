@@ -26,3 +26,28 @@ function printBinaryStrings(str, i) {
 
 //printBinaryStrings("1??0?101", 0);
 printBinaryStrings("1??", 0);
+
+/*
+Input str = "1??"
+ 
+Output: 
+        100
+        110
+        101
+        111
+
+Example 2 :
+ 
+Input str = "1??0?101"
+ 
+Output: 
+        10000101
+        10001101
+        10100101
+        10101101
+        11000101
+        11001101
+        11100101
+        11101101
+        
+*/
