@@ -97,3 +97,48 @@ Array.prototype.customForEachTwo = function (callback, thisCtx) {
     i++;
   }
 };
+
+// string program
+
+//let input = 'AAABBCC'
+//let output = 'A3B2C2'
+
+function compressString(input) {
+  if (input.length === 0) return "";
+
+  let output = "";
+  let count = 1;
+
+  for (let i = 1; i < input.length; i++) {
+    if (input[i] === input[i - 1]) {
+      count++;
+    } else {
+      output += input[i - 1] + count;
+      count = 1;
+    }
+  }
+  return (output += input[input.length - 1] + count);
+}
+
+let output = compressString("AAABBCC");
+console.log("print =>", output); // Outputs: A3B2C2
+
+// implement word count with another approch
+
+const countChar = (str) => {
+  let obj = {};
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str[i]]) {
+      obj[str[i]] += 1;
+    } else {
+      obj[str[i]] = 1;
+    }
+  }
+  for (let key in obj) {
+    result += key + obj[key];
+  }
+  return result;
+};
+
+console.log("countChar =>", countChar("AAABBCC"));
