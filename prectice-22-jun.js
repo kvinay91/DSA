@@ -162,3 +162,21 @@ console.log(unique());
 console.log(unique());
 console.log(unique());
 console.log(unique());
+
+function flattenArray(arr) {
+  function flatten(arr) {
+    return arr.reduce((prevValue, currentValue) => {
+      if (Array.isArray(currentValue)) {
+        return prevValue.concat(flatten(currentValue));
+      } else {
+        prevValue.push(currentValue);
+        return prevValue;
+      }
+    }, []);
+  }
+  const flatten1 = flatten(arr);
+  let removeDuplicate = [...new Set(flatten1)];
+  return removeDuplicate;
+}
+
+console.log(flattenArray([2, 4, [1, 1], [1, [3, 5]]])); // [2, 4, 1, 3, 5]
