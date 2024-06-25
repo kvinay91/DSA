@@ -180,3 +180,44 @@ function flattenArray(arr) {
 }
 
 console.log(flattenArray([2, 4, [1, 1], [1, [3, 5]]])); // [2, 4, 1, 3, 5]
+
+const checkAsync = () => {
+  const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(2);
+    }, 5000);
+  });
+  for (var x = 0; x < 10; x++) {
+    console.log(1);
+    setTimeout(() => {
+      console.log(x);
+    }, 10000);
+    promise1.then((res) => console.log(res));
+  }
+};
+checkAsync();
+
+var name = "global";
+var obj = {
+  name: "obj name",
+  getName: function () {
+    return this.name;
+  },
+  getNameFE() {
+    return this.name;
+  },
+  getNameArrow: () => {
+    return this.name;
+  },
+  getInternal: function () {
+    return function () {
+      return this.name;
+    };
+  },
+};
+
+console.log(obj.getName());
+console.log(obj.getNameFE());
+console.log(obj.getNameArrow());
+let out = obj.getInternal();
+console.log(out());
