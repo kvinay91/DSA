@@ -221,3 +221,52 @@ console.log(obj.getNameFE());
 console.log(obj.getNameArrow());
 let out = obj.getInternal();
 console.log(out());
+
+function compressString(input) {
+  if (input.length === 0) return "";
+
+  let result = "";
+  let count = 1;
+
+  for (let i = 1; i < input.length; i++) {
+    if (input[i] === input[i - 1]) {
+      count++;
+    } else {
+      result += count + input[i - 1];
+      count = 1;
+    }
+  }
+
+  // Append the last character and its count
+  result += count + input[input.length - 1];
+
+  return result;
+}
+
+// Test the function
+const strInput = "tttrrrrssddddffttt";
+const output = compressString(strInput);
+console.log(output); // Outputs: '3t4r4s4d2f3t'
+
+function longestCommonPrefix(strs) {
+  if (strs.length === 0) return "";
+  if (strs.length === 1) return strs[0];
+
+  // Sort the array
+  strs.sort();
+
+  // Compare the first and the last string in the sorted array
+  const first = strs[0];
+  const last = strs[strs.length - 1];
+
+  let i = 0;
+  while (i < first.length && first[i] === last[i]) {
+    i++;
+  }
+
+  return first.substring(0, i);
+}
+
+// Test the function
+const strInputArr = ["Hello", "Hell", "Hela", "Heman"];
+console.log(longestCommonPrefix(input)); // Outputs: 'He'
