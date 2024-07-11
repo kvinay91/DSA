@@ -192,3 +192,53 @@ console.log(myFlattened);
   Key2.c.e.: "1"
 }
 */
+
+function myPromiseAll(iterable) {
+  return new Promise(function (resolve, reject) {
+    if (!Array.isArray(iterable)) {
+      return reject(new TypeError("Argument is not iterable"));
+    }
+
+    let results = [];
+
+    let remaining = iterable.length;
+
+    if (remaining === 0) {
+      resolve(results);
+      return;
+    }
+
+    function resolver(index) {
+      return function (value) {
+        results[index] = value;
+        remaining -= 1;
+        if (remaining === 0) {
+          resolve(results);
+        }
+      };
+    }
+
+    function rejector(reson) {
+      reject(reson);
+    }
+
+    for (let i = 0; i < iterable.length; i++) {
+      let promise = iterable[i];
+      if (promise && typeof promise.then === "function") {
+        promise.then(resolver(i), rejector);
+      } else {
+        resolver(i)(promise);
+      }
+    }
+  });
+}
+
+let promise1 = Promise.resolve(1);
+let promise2 = Promise.resolve(2);
+let promise3 = new Promise((resolve, reject) => setTimeout(resolve, 100, 3));
+
+myPromiseAll([promise1, promise2, promise3])
+  .then((value) => {
+    console.log(value);
+  })
+  .catch((error) => console.log(error));
