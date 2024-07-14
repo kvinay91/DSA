@@ -242,3 +242,8 @@ myPromiseAll([promise1, promise2, promise3])
     console.log(value);
   })
   .catch((error) => console.log(error));
+
+function oneparam(a) {
+  console.log(oneparam.length); // 1 it will give the param count
+}
+oneparam();
