@@ -148,3 +148,7 @@ const sortArray = (arr) => {
 const arr = [3, 65, 7, 1, 66, 8];
 
 console.log("sort arr ==>", sortArray(arr));
+console.log("sort arr ==>", sortArray(arr));
+console.log("sort arr ==>", sortArray(arr));
+console.log("sort arr ==>", sortArray(arr));
+console.log("sort arr ==>", sortArray(arr));
