@@ -247,3 +247,38 @@ function oneparam(a) {
   console.log(oneparam.length); // 1 it will give the param count
 }
 oneparam();
+
+// insert second index of the array newEmployee to employee
+// based on the employee we need to sort the age
+
+const employee = [
+  { name: "Rohan", age: 35, salary: 500 },
+  { name: "John", age: 30, salary: 300 },
+  { name: "sahil", age: 29, salary: 200 },
+];
+const newEmployee = { name: "John", age: 30 };
+
+employee.splice(1, 0, newEmployee);
+
+employee.sort((a, b) => a.age - b.age);
+
+console.log(employee);
+
+let a = [1, 2, 3, 4];
+
+function printWithDelay(value, delay) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(value);
+      resolve();
+    }, delay);
+  });
+}
+
+async function printArray(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    await printWithDelay(arr[i], i * 1000);
+  }
+}
+
+printArray(a);
