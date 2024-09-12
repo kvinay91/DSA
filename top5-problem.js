@@ -240,3 +240,42 @@ console.log(arr1);
 console.log(obj1[arr1]);
 obj1[arr1] = "React";
 console.log(obj1.test);
+
+//write a program of the two sum problem
+
+const twoSum = (arr, target) => {
+  const map = {};
+  for (let i = 0; i < arr.length; i++) {
+    const diff = target - arr[i];
+    if (map[arr[i]] !== undefined) {
+      return [map[arr[i]], i];
+    }
+    map[diff] = i;
+  }
+  return [];
+};
+// console.log(twoSum([2, 7, 11, 15], 9));
+// optimise the two sum problem
+const twoSumOptimise = (arr, target) => {
+  const map = {};
+  for (let i = 0; i < arr.length; i++) {
+    const diff = target - arr[i];
+    if (map[arr[i]] !== undefined) {
+      return [map[arr[i]], i];
+    }
+    map[diff] = i;
+  }
+  return [];
+};
+console.log(twoSumOptimise([2, 7, 11, 15], 9));
+// give the space and time complexity of the two sum problem
+// space complexity is O(n) and time complexity is O(n)
+
+// write the program of find the middle element of the linked list
+
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
